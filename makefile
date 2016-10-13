@@ -17,9 +17,15 @@ DIR_PRG = ./prog
 dbotsw: $(DIR_OBJ)/dbotsw.o $(DIR_OBJ)/botsw.o $(DIR_OBJ)/utils.o $(DIR_OBJ)/cross_validation.o $(DIR_OBJ)/svm.o $(DIR_OBJ)/sift.o $(DIR_OBJ)/norm.o $(DIR_OBJ)/param.o
 	$(LOADER) $(OPT) -o $(DIR_BIN)/$@ $^ $(CXXFLAGS) $(OPCVFLAGS) $(BOOSTFLAGS)
 	
+get_feature_vectors: $(DIR_OBJ)/get_feature_vectors.o $(DIR_OBJ)/botsw.o $(DIR_OBJ)/utils.o $(DIR_OBJ)/cross_validation.o $(DIR_OBJ)/svm.o $(DIR_OBJ)/sift.o $(DIR_OBJ)/norm.o $(DIR_OBJ)/param.o
+	$(LOADER) $(OPT) -o $(DIR_BIN)/$@ $^ $(CXXFLAGS) $(OPCVFLAGS) $(BOOSTFLAGS)
+	
 ## ----- ##
 
 $(DIR_OBJ)/dbotsw.o: $(DIR_PRG)/dbotsw.cpp $(DIR_SRC)/botsw.cpp $(DIR_SRC)/utils.cpp $(DIR_SRC)/cross_validation.cpp $(DIR_SRC)/svm.cpp $(DIR_SRC)/sift.cpp $(DIR_SRC)/norm.cpp $(DIR_SRC)/param.cpp
+	$(CXX) -o $@ -c $< $(CXXFLAGS)
+	
+$(DIR_OBJ)/get_feature_vectors.o: $(DIR_PRG)/get_feature_vectors.cpp $(DIR_SRC)/botsw.cpp $(DIR_SRC)/utils.cpp $(DIR_SRC)/cross_validation.cpp $(DIR_SRC)/svm.cpp $(DIR_SRC)/sift.cpp $(DIR_SRC)/norm.cpp $(DIR_SRC)/param.cpp
 	$(CXX) -o $@ -c $< $(CXXFLAGS)
 	
 $(DIR_OBJ)/botsw.o: $(DIR_SRC)/botsw.cpp $(DIR_SRC)/utils.cpp
