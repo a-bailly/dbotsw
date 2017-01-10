@@ -23,7 +23,7 @@ void TS::read_data(
 	std::vector<TYPE> ts;
 	time_series_class<TYPE> tscl;
 	
-	unsigned int v;
+	float v;
 	unsigned int min_class = UINT_MAX;
 	T e;
 
@@ -51,8 +51,9 @@ void TS::read_data(
 			*it -= e;
 
 		e = *std::max_element(ts.begin(), ts.end());
-		for(auto it = ts.begin(); it != ts.end(); ++it)
-			*it /= e;
+		if ( e != 0)
+			for(auto it = ts.begin(); it != ts.end(); ++it)
+				*it /= e;
 
 		tscl.ts = ts;
 

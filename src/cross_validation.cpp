@@ -15,6 +15,9 @@ void CROSS_V::update_best_param(
 	std::vector<double> v_c_svm
 	)
 {
+	std::cout << "Current " << n_blocks << ' ' << sz_block << ' ' << k_means << ' ' << best << std::endl;
+	std::cout << acc << std::endl;
+	
 	for(unsigned int k=0; k<acc.size(); ++k)
 	{
 		if(best < acc[k])

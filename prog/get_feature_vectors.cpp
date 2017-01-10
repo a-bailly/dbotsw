@@ -141,9 +141,10 @@ int main(int argc, char *argv[]) {
 	if(param.n_sc == 0 || param.n_sc > max_sc)
 		param.n_sc = max_sc;
 	
-	unsigned int i, j, k, nip=0;
+	unsigned int i, j, k;
 	
-	// TRAIN
+	/*/ TRAIN
+	unsigned int nip=0;
 	{
 		std::vector< std::vector< SIFT::ipoints > > train_ip;
 		std::vector<SIFT::st_sift> train_st; // DOG + L
@@ -176,10 +177,12 @@ int main(int argc, char *argv[]) {
 			}
 			ofs.close();
 		}
-	}
+	}//*/
 	
 	// TEST
 	{
+		std::cout << data.test.size() << " T " << data.test[1].ts << std::endl;
+		
 		std::vector< std::vector< SIFT::ipoints > > test_ip;
 		std::vector<SIFT::st_sift> test_st; // DOG + L
 		SIFT::get_ip(data.test, test_ip, test_st, param);

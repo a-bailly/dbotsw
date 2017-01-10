@@ -1,0 +1,7 @@
+bin/*
+obj/*
+output/*
+*~
+*/*~
+oar*
+param-*.txt

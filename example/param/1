@@ -4,6 +4,6 @@ k 32 64 128 256 512 1024
 c_svm 1 10 100
 n_sc 0
 k_fold 1
-dense 10
+dense 1
 norm_bow 1
 norm_bow_ssr 1

@@ -8,7 +8,7 @@ OPCVFLAGS = -lopencv_core -lopencv_highgui
 BOOSTFLAGS = -lboost_filesystem -lboost_system -lboost_unit_test_framework
 X11FLAGS = -lsvm
 
-DIR_SRC = ./src/
+DIR_SRC = ./src
 DIR_BIN = ./bin
 DIR_INC = ./inc
 DIR_OBJ = ./obj

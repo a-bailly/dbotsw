@@ -16,22 +16,32 @@ std::vector<double> SIFT::l(const std::vector<T>& ts, const double& sigma)
 	int dec;
 
 	vg = SIFT::g(sigma);
+	
 	dec = (int) ((vg.size() + 1) * 0.5);
 
 	for(i=0; i<ts.size(); ++i)
 	{
+		
 		k = i-dec;
 		m = 1;
 
 		for(j=0; j<vg.size(); ++j)
 		{
 			if(fabs(++k)<ts.size())
+			{
 				r[i] += (vg[j] * ts[fabs(k)]);
+			}
 			else
-				r[i] += (vg[j] * ts[ts.size()-(++m)]);
+			{
+				if(m<ts.size())
+				{
+					r[i] += (vg[j] * ts[ts.size()-(++m)]);
+				}
+				
+			}
 		}
 	}
-
+	
 	return r;
 }
 
