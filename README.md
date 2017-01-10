@@ -35,3 +35,5 @@ sz_block, n_blocks, k (k-means), c_svm, n_sc, k_fold, dense, norm_bow, norm_bow_
 Main program to extract feature vectors (and work directly from them) is available.
 
 > make clean && make get_feature_vectors
+
+Require options *--f* and *--o*
